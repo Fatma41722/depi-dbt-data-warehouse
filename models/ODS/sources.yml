@@ -1,0 +1,11 @@
+
+version: 2
+
+sources:
+  - name: depi_raw
+    description: "Raw employee data stored in SQL Server."
+    database: DEPI
+    schema: dbo
+    tables:
+      - name: DEPI_data
+        description: "Original employee dataset."

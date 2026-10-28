@@ -1,0 +1,78 @@
+
+version: 2
+
+models:
+  - name: dim_gender
+    description: "Dimension containing unique gender values."
+    columns:
+      - name: gender_key
+        description: "Generated key for each gender."
+        data_tests:
+          - not_null
+          - unique
+      - name: gender
+        description: "Gender value."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_country
+    description: "Dimension containing unique countries."
+    columns:
+      - name: country_key
+        description: "Generated key for each country."
+        data_tests:
+          - not_null
+          - unique
+      - name: country
+        description: "Country name."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_department
+    description: "Dimension containing unique departments."
+    columns:
+      - name: department_key
+        description: "Generated key for each department."
+        data_tests:
+          - not_null
+          - unique
+      - name: department
+        description: "Department name."
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_employee
+    description: "Employee dimension enriched with descriptive dimension keys."
+    columns:
+      - name: employee_key
+        description: "Employee identifier from the source data."
+        data_tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "Employee's first name."
+        data_tests:
+          - not_null
+      - name: last_name
+        description: "Employee's last name."
+        data_tests:
+          - not_null
+      - name: email
+        description: "Employee's email address."
+        data_tests:
+          - not_null
+          - unique
+      - name: salary
+        description: "Employee salary as a decimal value."
+        data_tests:
+          - not_null
+          - not_negative
+      - name: gender_key
+        description: "Reference to the gender dimension."
+      - name: country_key
+        description: "Reference to the country dimension."
+      - name: department_key
+        description: "Reference to the department dimension."

@@ -1,0 +1,47 @@
+
+version: 2
+
+models:
+  - name: stg_employees
+    description: "Cleaned and standardized employee data from the ODS layer."
+
+    columns:
+      - name: ID
+        description: "Unique employee identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: first_name
+        description: "Employee's first name."
+        data_tests:
+          - not_null
+
+      - name: last_name
+        description: "Employee's last name."
+        data_tests:
+          - not_null
+
+      - name: gender
+        description: "Employee's gender."
+
+      - name: email
+        description: "Employee's email address."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: DOB
+        description: "Employee's date of birth."
+
+      - name: salary
+        description: "Salary converted from text to decimal."
+        data_tests:
+          - not_null
+          - not_negative
+
+      - name: department
+        description: "Employee's department."
+
+      - name: country
+        description: "Employee's country."
